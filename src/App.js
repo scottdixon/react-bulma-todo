@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Input } from 'reactbulma'
+import { Input, Notification } from 'reactbulma'
 import Header from './components/Header';
 
 
@@ -27,7 +27,7 @@ class App extends Component {
     const currentTasks = [...this.state.tasks];
 
     // Add the new task to our copy of tasks
-    currentTasks.push(this.state.searchPhrase);
+    currentTasks.unshift(this.state.searchPhrase);
 
     // Update the state with the new tasks
     // and reset search
@@ -58,7 +58,7 @@ class App extends Component {
         {
           tasks
           .filter(myTask => myTask.includes(searchPhrase))
-          .map(myTask => <p>{myTask}</p>)
+          .map(myTask => <Notification>{myTask}</Notification>)
         }
 
       </div>
